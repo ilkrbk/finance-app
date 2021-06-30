@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    {{> _adjas_style}}
+    {{> _target_style}}
+</head>
+<body>
+    <div class="wrapApp">
+        {{> menu}}
+        <div class="app__screen">
+            <ul class="app__main-list">
+                {{#each targets}}
+                    <li class="app__main-item">
+                        <h3 class="app__main-item-title">{{this.name}}</h3>
+                        <div class="app__main-item-money-curreny">
+                            <span class="app__main-item-money">{{this.totalplannedamount}}</span>
+                            <span class="app__main-item-curreny">UAN</span>
+                        </div>
+                        <div class="app__main-item-del-edit">
+                            <a href="/selectTarget/{{this.targetid}}" class="app__main-item-select"><i class="fas fa-check"></i></i></a>
+                            <form action="/deleteTarget/{{this.targetid}}" method="POST">
+                                <button type="submit" class="app__main-item-del"><i class="fas fa-trash"></i></button>
+                            </form>
+                        </div>
+                    </li>
+                {{/each}}
+                <li class="app__main-item">
+                    <a href="/create_Target" class="app__main-item-link"><i class="fas fa-plus"></i></a>
+                </li>
+            </ul>
+            <ul class="app__additional-list">
+                {{#each targetSteps}}
+                    <li class="app__additional-item">
+                        <div class="app__additional-item-money-date">
+                            <span class="app__additional-item-money">{{this.plannedamount}}</span>
+                            <span class="app__additional-item-date">{{this.planneddate}}</span>
+                        </div>
+                        <div class="app__additional-item-del-edit">
+                            <form action="/deleteTargetStep/{{this.targetstepid}}" method="POST">
+                                <button type="submit" class="app__additional-item-del"><i class="fas fa-trash"></i></button>
+                            </form>
+                        </div>
+                    </li>
+                {{/each}}
+                <li class="app__additional-item">
+                    <a href="/create_TargetStep"><i class="fas fa-plus"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
+

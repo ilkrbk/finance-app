@@ -1,0 +1,159 @@
+<style>
+    .app__screen{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .app__main-list{
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        width: 30%;
+        height: 100vh;
+        background: rgb(28, 54, 86);
+        overflow-x: scroll;
+    }
+
+    .app__main-item{
+        position: relative;
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 15px;
+        background: rgb(166, 198, 237);
+        width: 100%;
+        height: 100px;
+        min-height: 100px;
+        box-shadow: 0 0 7px rgba(0,0,0,0.8);
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .app__main-item:last-child{
+        padding: 0px;
+        background: rgba(166, 198, 237, 0.5);;
+        margin-bottom: 0px;
+    }
+    
+    .app__main-item-del-edit{
+        position: absolute;
+        right: 5px;
+        top: 10px;
+        display: flex;
+        flex-direction: column;
+        color:  #101926;
+    }
+
+    .app__main-item-del, .app__additional-item-del{
+        padding: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .app__main-item-link{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .app__main-item-title{
+        margin: 0;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 1rem;
+    }
+
+    .app__main-item-money-curreny{
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.9rem;
+    }
+
+    .app__additional-list{
+        background: rgb(166, 198, 237);
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        height: 100vh;
+        padding: 10px;
+        overflow-x: scroll;
+    }
+
+    .app__additional--header{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgb(28, 54, 86);
+    }
+
+    .app__additional-item{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
+        border-bottom: 1px solid rgb(28, 54, 86);
+    }
+
+    .app__additional-item:last-child{
+        border-bottom: none;
+    }
+
+    .app__additional-item:last-child > a{
+        display: flex;
+        height: 42px;
+        width: 49%;
+        justify-content: center;
+        align-items: center;
+        background:rgb(28, 54, 86);
+        color: rgb(166, 198, 237);
+    }
+
+    .app__additional-item-icon{
+        width: 35px;
+        height: 35px;
+        background: rgb(28, 54, 86);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(166, 198, 237);
+    }
+
+    .app__additional-item-title{
+        margin: 0;
+        width: 60%;
+        color: #101926;
+        font-family: serif;
+        font-size: 1.2rem;
+    }
+
+    .app__additional-item-money-date{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .app__additional-item-date{
+        font-size: 0.7rem;
+    }
+
+    .app__additional-item-money{
+        font-size: 1.1rem;
+    }
+    
+    .d-n{
+        display: none;
+    }
+
+    .app__additional--header > form > input{
+        background: none;
+        color:  #101926;
+        border: 1px solid #101926;
+    }
+</style>

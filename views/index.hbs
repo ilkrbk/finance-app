@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    {{> _adjas_style}}
+    {{> _index_style}}
+</head>
+<body>
+    <div class="wrapApp">
+        {{> menu}}
+        <div class="app__screen">
+            <ul class="app__main-list">
+                {{#each accounts}}
+                    <li class="app__main-item">
+                        <h3 class="app__main-item-title">{{this.name}}</h3>
+                        <div class="app__main-item-money-curreny">
+                            <span class="app__main-item-money">{{this.moneyamount}}</span>
+                            <span class="app__main-item-curreny">UAN</span>
+                        </div>
+                        <div class="app__main-item-del-edit">
+                            <a href="/select/{{this.accountid}}" class="app__main-item-select"><i class="fas fa-check"></i></i></a>
+                            <a href="/edit/{{this.accountid}}" class="app__main-item-edit"><i class="fas fa-edit"></i></a>
+                            <form action="/delete/{{this.accountid}}" method="POST">
+                                <button type="submit" class="app__main-item-del"><i class="fas fa-trash"></i></button>
+                            </form>
+                        </div>
+                    </li>
+                {{/each}}
+                <li class="app__main-item">
+                    <a href="/create_account" class="app__main-item-link"><i class="fas fa-plus"></i></a>
+                </li>
+            </ul>
+            <ul class="app__additional-list">
+                <header class="app__additional--header">
+                    <form action="{{chooseFromRangeInAccount}}/chooseFromRange" method="POST" class="app__additional--wrap-date">
+                        <input type="date" name="DateStart">
+                        <input type="date" name="DateEnd">    
+                        <input type="submit" value="Выбрать"/>
+                    </form>
+                    <div class="app__additional--wrap-page-scroll {{pagesDisplay}}">
+                        <a href="{{chooseFromRange}}{{selectAccount}}/pagePrevious/{{transactionslength}}" class="app__additional-item-edit"><i class="fas fa-chevron-left"></i></a>
+                        <label>{{transactionslength}}</label>
+                        <a href="{{chooseFromRange}}{{selectAccount}}/pageNext/{{transactionslength}}" class="app__additional-item-edit"><i class="fas fa-chevron-right"></i></a>  
+                    </div>
+                </header>
+                {{#each Transactions}}
+                    <li class="app__additional-item">
+                        <div class="app__additional-item-icon"><i class="fas {{this.pictureurl}}"></i></div>
+                        <h4 class="app__additional-item-title">{{this.name}}</h4>
+                        <div class="app__additional-item-money-date">
+                            <span class="app__additional-item-money">{{this.money}}</span>
+                            <span class="app__additional-item-date">{{this.date}}</span>
+                        </div>
+                        <div class="app__additional-item-del-edit">
+                            <a href="/editTransaction/{{this.expenditureid}}/{{this.money}}" class="app__additional-item-edit"><i class="fas fa-edit"></i></a>
+                            <form action="/deleteTransaction/{{this.expenditureid}}/{{this.money}}" method="POST">
+                                <button type="submit" class="app__additional-item-del"><i class="fas fa-trash"></i></button>
+                            </form>
+                        </div>
+                    </li>
+                {{/each}}
+                <li class="app__additional-item">
+                    <a href="/create_transaction_income"><i class="fas fa-plus"></i></a>
+                    <a href="/create_transaction_expenditure"><i class="fas fa-minus"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
+

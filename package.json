@@ -1,0 +1,31 @@
+{
+    "main": "localhost:8080",
+    "name": "finance",
+    "description": "App for calculate finance",
+    "version": "0.0.1",
+    "keywords": [
+        "finance",
+        "app"
+    ],
+    "window": {
+        "title": "finance",
+        "toolbar": false,
+        "frame": true,
+        "width": 800,
+        "height": 500,
+        "position": "center",
+        "min_width": 700,
+        "min_height": 400,
+        "max_width": 700,
+        "max_height": 400
+    },
+    "author": "ilkrbk",
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "hbs": "^4.1.1",
+        "nodemon": "^2.0.6",
+        "pg": "^8.5.1"
+    }
+}

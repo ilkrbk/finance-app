@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    {{> _adjas_style}}
+    {{> _edit_style}}
+</head>
+<body>
+    <div class="wrapApp">
+        {{> menu}}
+        <div class="app__screen">
+            <form class="app__form" action="add_transaction_{{plus_minus}}" method="POST" name="createAccountTrasaction"> 
+                <h1 class="app__form-title">Создание транзакции</h1>
+                <select class="app__form-input" name="createTrasactionAccount" id="">
+                    <option disabled>Выберите</option>
+                    {{#each accounts}}
+                        <option value="{{this.accountid}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+                <select class="app__form-input" name="createTrasactionCategory" id="">
+                    <option disabled>Выберите</option>
+                    {{#each category}}
+                        <option value="{{this.categoryid}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+                <input class="app__form-input" name="createTrasactionMoney" placeholder="Сумма"/>
+                <button class="app__form-input" type="submit" >Добавить</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
